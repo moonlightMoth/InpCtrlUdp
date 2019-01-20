@@ -8,7 +8,7 @@ import java.net.SocketException;
 public class Server extends Thread
 {
     private DatagramSocket socket;
-    private byte[] buf = new byte[1];
+    private byte[] buff = new byte[1];
     private Point curPos;
 
     private final byte MV_UP = 1;
@@ -46,15 +46,11 @@ public class Server extends Thread
     {
         try
         {
-            DatagramPacket packet;
+            DatagramPacket packet = new DatagramPacket(buff, 1);
 
             while (true) {
 
-                packet = new DatagramPacket(buf, 1);
-
                 socket.receive(packet);
-
-                System.out.println(packet.getData()[0]);
 
                 makeDesByte(packet.getData()[0]);
 
