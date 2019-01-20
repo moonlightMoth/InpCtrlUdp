@@ -1,4 +1,0 @@
-class ShutdownSignal extends Throwable
-{
-
-}

@@ -123,9 +123,8 @@ public class Server extends Thread
         }
     }
 
-    void shutdown() throws ShutdownSignal
+    void closeSocket()
     {
         socket.close();
-        throw new ShutdownSignal();
     }
 }

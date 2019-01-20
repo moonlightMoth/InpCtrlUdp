@@ -21,13 +21,13 @@ public class Main
             while((consoleInputStr = consoleReader.readLine()) != null)
             {
                 if (consoleInputStr.equals("exit"))
-                    server.shutdown();
+                {
+                    System.out.println("Exit signal got.");
+                    System.out.println("Shutting down...");
+                    server.closeSocket();
+                    return;
+                }
             }
-        }
-        catch (ShutdownSignal signal)
-        {
-            System.out.println("Exit signal got.");
-            System.out.println("Shutting down...");
         }
         catch (IOException e)
         {
